@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:QECalculator.Pages.QECalculator"
+             x:Class="QECalculator.Pages.QECalculator.QECalculatorPage">
+
+    <ContentPage.BindingContext>
+        <local:QECalculatorViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Quadratic equation Title & Image -->
+        <Label Text="Calculate quadratic equation" FontSize="Large" TextColor="Black"
+               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"/>
+        <Image Source="quadraticEquation" 
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"/>
+        <!-- Inputs -->
+        <!-- A -->
+        <Label Text="a" FontSize="Large" TextColor="Black" 
+               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"/>
+        <Entry Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1"
+               Text="{Binding A}"/>
+        <!-- B -->
+        <Label Text="b" FontSize="Large" TextColor="Black"
+               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"/>
+        <Entry Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1"
+               Text="{Binding B}"/>
+        <!-- C-->
+        <Label Text="c" FontSize="Large" TextColor="Black"
+               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1"/>
+        <Entry Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1"
+               Text="{Binding C}"/>
+        <!-- Result Label -->
+        <Label FontSize="Medium" TextColor="Black"
+               VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"
+               Text="{Binding Result}"/>
+        <!-- Button -->
+        <Button Text="Calculate" FontSize="Medium" CornerRadius="20"
+                BackgroundColor="BlueViolet" TextColor="WhiteSmoke"
+                Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                Command="{Binding OnCalculateBtnClicked}"/>
+        <Button Text="Clear" FontSize="Medium" CornerRadius="20"
+                BackgroundColor="MediumVioletRed" TextColor="WhiteSmoke"
+                Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"
+                Command="{Binding OnClearBtnClicked}"/>
+    </Grid>
+</ContentPage>
